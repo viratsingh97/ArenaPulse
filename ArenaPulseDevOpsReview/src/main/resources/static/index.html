@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArenaPulse | Sports Management</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <h2>🏀 Arena<span>Pulse</span></h2>
+        <p class="side-label">MENU</p>
+        <a class="active" href="#">▦ Dashboard</a>
+        <a href="#venues">⚽ Sports Venues</a>
+        <div class="sidebar-bottom">
+            <p>DEVOPS DEMO</p>
+            <small>Powered by Spring Boot</small>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>Dashboard</h1>
+                <p>Manage your sports facilities in one place.</p>
+            </div>
+            <div class="status">
+                <span class="status-dot"></span> System Online
+            </div>
+        </header>
+
+        <section class="welcome">
+            <div>
+                <p class="eyebrow">WELCOME TO ARENAPULSE</p>
+                <h2>Find your game. Book your court.</h2>
+                <p>Discover and manage sports facilities around you.</p>
+            </div>
+            <div class="welcome-icon">🏆</div>
+        </section>
+
+        <section class="stats">
+            <div class="stat-card">
+                <p>Total Venues</p>
+                <h2 id="totalVenues">0</h2>
+                <span>Registered facilities</span>
+            </div>
+            <div class="stat-card">
+                <p>Sports Categories</p>
+                <h2 id="totalSports">0</h2>
+                <span>Available sports</span>
+            </div>
+            <div class="stat-card">
+                <p>Platform Status</p>
+                <h2 class="online">Active</h2>
+                <span>Application operational</span>
+            </div>
+        </section>
+
+        <section class="venue-section" id="venues">
+
+            <div class="section-heading">
+                <div>
+                    <h2>Sports Venues</h2>
+                    <p>Explore and manage registered facilities.</p>
+                </div>
+                <button class="primary-btn" onclick="openModal()">
+                    + Add Venue
+                </button>
+            </div>
+
+            <div class="filters">
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search venues..."
+                >
+
+                <select id="sportFilter">
+                    <option value="All">All Sports</option>
+                    <option value="Basketball">Basketball</option>
+                    <option value="Badminton">Badminton</option>
+                    <option value="Football">Football</option>
+                    <option value="Cricket">Cricket</option>
+                </select>
+
+                <button class="secondary-btn" onclick="loadVenues()">
+                    Refresh
+                </button>
+            </div>
+
+            <div id="venueList" class="venue-grid">
+                <p>Loading venues...</p>
+            </div>
+
+        </section>
+
+        <footer>
+            ArenaPulse DevOps Edition © 2026
+            <span>Java · Spring Boot · Docker</span>
+        </footer>
+
+    </main>
+</div>
+
+<!-- ADD VENUE MODAL -->
+
+<div class="modal" id="venueModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <div>
+                <h2>Add New Venue</h2>
+                <p>Register a new sports facility.</p>
+            </div>
+            <button class="close-btn" onclick="closeModal()">×</button>
+        </div>
+
+        <form id="venueForm">
+            <label>Venue Name</label>
+            <input
+                type="text"
+                id="venueName"
+                placeholder="e.g. NIET Basketball Court"
+                required
+            >
+
+            <label>Sport</label>
+            <select id="venueSport" required>
+                <option value="">Select Sport</option>
+                <option>Basketball</option>
+                <option>Badminton</option>
+                <option>Football</option>
+                <option>Cricket</option>
+                <option>Tennis</option>
+                <option>Volleyball</option>
+            </select>
+
+            <p id="formMessage"></p>
+
+            <button class="primary-btn submit-btn" type="submit">
+                Save Venue
+            </button>
+        </form>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
